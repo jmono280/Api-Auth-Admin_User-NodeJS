@@ -2,21 +2,21 @@
 
 API node lista para desplegar en docker y dar seguridad al ingreso de tu proyecto.
 
-#### Step 1
+#### Step 1 ####
 
 -> cd name project
 -> npm install
--> Name folder create .env file
-MYSQL_HOST=mysqldb
-MYSQL_USER=robot
-MYSQL_PASSWORD=
-MYSQL_ROOT_PASSWORD=
-MYSQL_DATABASE=test_db
-MYSQLDB_LOCAL_PORT=3306
-MYSQLDB_DOCKER_PORT=3306
-NODE_LOCAL_PORT=8081
-NODE_DOCKER_PORT=8081
-SECRET= "OK!6QoFW&L4L?Wo"
+-> .env file
+    MYSQL_HOST=127.0.0.1
+    MYSQL_USER=root
+    MYSQL_PASSWORD=
+    MYSQL_ROOT_PASSWORD=
+    MYSQL_DATABASE=test_db
+    MYSQLDB_LOCAL_PORT=3306
+    MYSQLDB_DOCKER_PORT=3306
+    NODE_LOCAL_PORT=8081
+    NODE_DOCKER_PORT=8081
+    SECRET= "OK!6QoFW&L4L?Wo"
 
 #### Step 2
 
@@ -24,7 +24,8 @@ SECRET= "OK!6QoFW&L4L?Wo"
 
 #### step 3 Docker
 
-->Main folder cmd 'docker compose up'
+-> Main folder cmd 
+-> docker compose up
 
 ### API Routes
 
@@ -33,35 +34,35 @@ GET -> http://127.0.0.1:8081/api/test/check
 
 --REGISTER USER--
 POST -> http://127.0.0.1:8081/api/jwt/register
-Body{
-"username":"test",
-"email":"test@test.com",
-"password":"12345678",
-"rol":"0",
-"avatar":"k"
-}
+  Body{
+    "username":"test",
+    "email":"test@test.com",
+    "password":"12345678",
+    "rol":"0",
+    "avatar":"k"
+  }
 
 --LOGIN--
 POST -> http://127.0.0.1:8081/api/jwt/signin
-Body{
-"username":"test",
-"password":"12345678"
-}
+  Body{
+    "username":"test",
+    "password":"12345678"
+  }
 RETURN:
-{
-"TOKEN":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.",
-"id":1,
-"username":"test",
-"email":"test@test.com",
-"rol":0
-}
+  {
+    "TOKEN":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.",
+    "id":1,
+    "username":"test",
+    "email":"test@test.com",
+    "rol":0
+  }
 
 --USER CONTENT--
 POST -> http://127.0.0.1:8081/api/get/user
-Headers
-x-access-token= 'Sigin Token Return'
+  Headers
+  x-access-token= 'Sigin Token Return'
 
 --ADMIN CONTENT--
 POST -> http://127.0.0.1:8081/api/get/admin
-Headers
-x-access-token= 'Sigin Token Return'
+  Headers
+  x-access-token= 'Sigin Token Return'
