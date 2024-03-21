@@ -7,16 +7,16 @@ API node lista para desplegar en docker y dar seguridad al ingreso de tu proyect
 - cd name project
 - npm install
 - .env file
-  MYSQL_HOST=127.0.0.1
-  MYSQL_USER=root
-  MYSQL_PASSWORD=
-  MYSQL_ROOT_PASSWORD=
-  MYSQL_DATABASE=test_db
-  MYSQLDB_LOCAL_PORT=3306
-  MYSQLDB_DOCKER_PORT=3306
-  NODE_LOCAL_PORT=8081
-  NODE_DOCKER_PORT=8081
-  SECRET= "OK!6QoFW&L4L?Wo"
+  - MYSQL_HOST=127.0.0.1
+  - MYSQL_USER=root
+  - MYSQL_PASSWORD=
+  - MYSQL_ROOT_PASSWORD=
+  - MYSQL_DATABASE=test_db
+  - MYSQLDB_LOCAL_PORT=3306
+  - MYSQLDB_DOCKER_PORT=3306
+  - NODE_LOCAL_PORT=8081
+  - NODE_DOCKER_PORT=8081
+  - SECRET= "OK!6QoFW&L4L?Wo"
 
 #### Step 2
 
