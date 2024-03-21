@@ -2,7 +2,7 @@
 
 API node lista para desplegar en docker y dar seguridad al ingreso de tu proyecto.
 
-#### Step 1 ####
+### Step 1 ###
 
 - cd name project
 - npm install
@@ -18,51 +18,51 @@ API node lista para desplegar en docker y dar seguridad al ingreso de tu proyect
   - NODE_DOCKER_PORT=8081
   - SECRET= "OK!6QoFW&L4L?Wo"
 
-#### Step 2
+### Step 2 ###
 
 - node server.js
 
-#### step 3 Docker
+#### step 3 Docker ###
 
 - Main folder cmd
-- - docker compose up
+- docker compose up
 
-### API Routes
+### API Routes ###
 
 ### TEST ###
-GET http://127.0.0.1:8081/api/test/check
+# GET - http://127.0.0.1:8081/api/test/check
 
 ### REGISTER USER ###
-POST http://127.0.0.1:8081/api/jwt/register
-Body{
-    "username":"test",
-    "email":"test@test.com",
-    "password":"12345678",
-    "rol":"0",
-    "avatar":"k"
+# POST - http://127.0.0.1:8081/api/jwt/register
+- Body{
+    - "username":"test",
+    - "email":"test@test.com",
+    - "password":"12345678",
+    - "rol":"0",
+    - "avatar":"k"
   }
 
---LOGIN--
-POST -> http://127.0.0.1:8081/api/jwt/signin
-  Body{
-    "username":"test",
-    "password":"12345678"
+### LOGIN ###
+# POST - http://127.0.0.1:8081/api/jwt/signin
+  - Body{
+    - "username":"test",
+    - "password":"12345678"
   }
-RETURN:
-  {
-    "TOKEN":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.",
-    "id":1,
-    "username":"test",
-    "email":"test@test.com",
-    "rol":0
-  }
+## RETURN:
+  - {
+    - "TOKEN":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.",
+    - "id":1,
+    - "username":"test",
+    - "email":"test@test.com",
+    - "rol":0
+  -}
 
---USER CONTENT--
-POST -> http://127.0.0.1:8081/api/get/user
-  Headers
-  x-access-token= 'Sigin Token Return'
+### USER CONTENT ###
+# POST -http://127.0.0.1:8081/api/get/user
+  - Headers
+  - x-access-token= 'Sigin Token Return'
 
---ADMIN CONTENT--
-POST -> http://127.0.0.1:8081/api/get/admin
-  Headers
-  x-access-token= 'Sigin Token Return'
+### ADMIN CONTENT ###
+# POST - http://127.0.0.1:8081/api/get/admin
+  - Headers
+  - x-access-token= 'Sigin Token Return'
