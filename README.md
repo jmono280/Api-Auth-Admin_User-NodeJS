@@ -4,9 +4,9 @@ API node lista para desplegar en docker y dar seguridad al ingreso de tu proyect
 
 #### Step 1 ####
 
--> cd name project
--> npm install
--> .env file
+- cd name project
+- npm install
+- .env file
     MYSQL_HOST=127.0.0.1
     MYSQL_USER=root
     MYSQL_PASSWORD=
