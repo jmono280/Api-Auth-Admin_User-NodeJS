@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  mysqldb:
+    container_name: back_mysql
+    platform: linux/amd64
+    image: mysql:5.7
+    env_file: ./.env
+    environment:
+      - MYSQL_USER=$MYSQL_USER
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
+      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - MYSQL_DATABASE=$MYSQL_DATABASE
+    ports:
+      - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
+    expose:
+      - 8081
+    volumes:
+      - /var/lib/mysql
+      - ./mysql/migrations:/docker-entrypoint-initdb.d
+    restart: unless-stopped
+
+  back_app:
+    container_name: back_app
+    depends_on:
+      - mysqldb
+    links:
+      - mysqldb
+    build: .
+    # restart: unless-stopped
+    env_file: ./.env
+    ports:
+      - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+    environment:
+      - DB_HOST=$MYSQL_HOST
+      - DB_USER=$MYSQL_USER
+      - DB_PASSWORD=$MYSQL_PASSWORD
+      - DB_NAME=$MYSQL_DATABASE
+      - DB_PORT=$MYSQLDB_DOCKER_PORT
+    volumes:
+      - .:/app
+    command: sh -c "npm install && npm run start"
